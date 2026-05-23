@@ -35,7 +35,11 @@ const profile = {
   intro:
     "My research spans visual representation learning, scene understanding, 3D reconstruction, point-cloud-based modeling, saliency-based visual attention, and multimodal visual systems. I am interested in developing scalable AI systems for visual data, 3D vision, and human-centered interaction.",
 };
-
+const typingWords = [
+  "Human-Centered AI Researcher",
+  "Computer Vision + HRI",
+  "Building thoughtful AI systems",
+];
 const navItems = ["About", "Research", "Projects", "Publications", "Skills", "Leadership", "Life", "Contact"];
 
 const researchThemes = [
@@ -310,55 +314,109 @@ function ParticleBackground() {
   };
 
   return (
-    <Particles
-      id="particles"
-      init={particlesInit}
-      className="pointer-events-none fixed inset-0 -z-0"
-      options={{
-        fullScreen: { enable: false },
-        background: { color: "transparent" },
-        fpsLimit: 60,
-        particles: {
-          number: {
-            value: 55,
-            density: { enable: true, area: 900 },
+    
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      <motion.div
+        animate={{
+          scale: [1, 1.12, 1],
+          opacity: [0.35, 0.55, 0.35],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute left-1/2 top-[-10rem] h-[26rem] w-[38rem] -translate-x-1/2 rounded-full bg-orange-400/35 blur-3xl dark:bg-orange-700/25"
+      />
+
+      <Particles
+        id="particles"
+        init={particlesInit}
+        className="absolute inset-0"
+        options={{
+          fullScreen: { enable: false },
+          background: { color: "transparent" },
+          fpsLimit: 60,
+          particles: {
+            number: {
+              value: 55,
+              density: { enable: true, area: 900 },
+            },
+            color: {
+              value: ["#f97316", "#f59e0b", "#78716c", "#ffffff"],
+            },
+            links: {
+              enable: true,
+              color: "#f59e0b",
+              distance: 140,
+              opacity: 0.18,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 0.45,
+              direction: "none",
+              random: true,
+              straight: false,
+              outModes: { default: "out" },
+            },
+            opacity: { value: 0.28 },
+            size: { value: { min: 1, max: 3 } },
           },
-          color: {
-            value: ["#f97316", "#f59e0b", "#78716c", "#ffffff"],
-          },
-          links: {
-            enable: true,
-            color: "#f59e0b",
-            distance: 140,
-            opacity: 0.18,
-            width: 1,
-          },
-          move: {
-            enable: true,
-            speed: 0.45,
-            direction: "none",
-            random: true,
-            straight: false,
-            outModes: { default: "out" },
-          },
-          opacity: { value: 0.28 },
-          size: { value: { min: 1, max: 3 } },
-        },
-        interactivity: {
-          events: {
-            onHover: { enable: true, mode: "grab" },
-            resize: true,
-          },
-          modes: {
-            grab: {
-              distance: 150,
-              links: { opacity: 0.35 },
+          interactivity: {
+            events: {
+              onHover: { enable: true, mode: "grab" },
+              resize: true,
+            },
+            modes: {
+              grab: {
+                distance: 150,
+                links: { opacity: 0.35 },
+              },
             },
           },
-        },
-        detectRetina: true,
-      }}
-    />
+          detectRetina: true,
+        }}
+      />
+    </div>
+  );
+}
+function TypingText() {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentWord = typingWords[wordIndex];
+
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          setDisplayText(currentWord.slice(0, displayText.length + 1));
+
+          if (displayText === currentWord) {
+            setTimeout(() => setIsDeleting(true), 900);
+          }
+        } else {
+          setDisplayText(currentWord.slice(0, displayText.length - 1));
+
+          if (displayText === "") {
+            setIsDeleting(false);
+            setWordIndex((prev) => (prev + 1) % typingWords.length);
+          }
+        }
+      },
+      isDeleting ? 45 : 85
+    );
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, wordIndex]);
+
+  return (
+    <p className="mt-4 text-lg font-semibold text-orange-600 dark:text-orange-300 sm:text-xl">
+      {displayText}
+      <span className="ml-1 animate-pulse">|</span>
+    </p>
   );
 }
 export default function PersonalWebsite() {
@@ -389,14 +447,14 @@ export default function PersonalWebsite() {
           <div className="absolute bottom-[-12rem] left-1/3 h-96 w-96 rounded-full bg-stone-200/50 blur-3xl dark:bg-stone-700/20" />
         </div>
 
-        <header className="sticky top-0 z-50 border-b border-stone-200/70 bg-[#faf5ef]/85 backdrop-blur-xl dark:border-white/10 dark:bg-[#171312]/85">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+        <header >
+            <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
             <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight">
 <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-white shadow-lg shadow-stone-900/10 ring-1 ring-stone-200 dark:bg-white dark:ring-white/20">
  <img
     src="/images/logo.png"
     alt="Yousra logo"
-    className="h-full w-full object-contain "
+    className="h-full w-full object-contain"
   />
 </span>
               <span>{profile.name}</span>
@@ -454,16 +512,28 @@ export default function PersonalWebsite() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-200">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/75 px-4 py-2 text-sm font-semibold text-stone-700 shadow-sm dark:border-orange-900/40 dark:bg-stone-900/40 dark:text-stone-200">
               <Sparkles size={16} className="text-orange-600" />
               Human-centered AI • Computer Vision • Robotics • Accessibility
             </div>
-            <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-6xl lg:text-7xl">
-              Building thoughtful AI systems for people, attention, and interaction.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-650 dark:text-zinc-300">
-              {profile.intro}
-            </p>
+<div className="mb-6">
+  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-600 dark:text-orange-300">
+    Portfolio
+  </p>
+  <p className="mt-2 text-sm text-stone-600 dark:text-stone-300">
+    AI · Computer Vision · HRI · Accessibility
+  </p>
+</div>
+
+<h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-stone-950 dark:text-white sm:text-6xl lg:text-7xl">
+  {profile.name}
+</h1>
+
+<TypingText />
+
+<p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700 dark:text-stone-300">
+  {profile.intro}
+</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#projects"
@@ -482,36 +552,25 @@ export default function PersonalWebsite() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="relative"
-          >
-            <div className="rounded-[2.5rem] border border-zinc-200 bg-white/75 p-5 shadow-2xl shadow-zinc-900/10 backdrop-blur dark:border-white/10 dark:bg-white/5">
-              <div className="rounded-[2rem] bg-gradient-to-br from-orange-100 via-pink-50 to-stone-100 p-8 dark:from-orange-500/20 dark:via-pink-500/10 dark:to-stone-500/20">
-                <div className="mb-8 flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-300">Currently</p>
-                    <p className="font-semibold text-zinc-950 dark:text-white">PhD Researcher</p>
-                  </div>
-                  <div className="rounded-2xl bg-white/80 p-3 shadow-sm dark:bg-zinc-950/40">
-                    <Globe2 size={22} />
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  {[profile.title, profile.affiliation, profile.location].map((item, index) => (
-                    <div key={item} className="flex items-center gap-3 rounded-2xl bg-white/70 p-4 shadow-sm dark:bg-zinc-950/35">
-                      {index === 0 && <BriefcaseBusiness size={18} className="text-orange-500" />}
-                      {index === 1 && <GraduationCap size={18} className="text-pink-600" />}
-                      {index === 2 && <MapPin size={18} className="text-stone-600" />}
-                      <span className="text-sm font-medium">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
+<motion.div
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.7, delay: 0.15 }}
+  className="relative flex min-h-[560px] items-center justify-center pt-10"
+>
+  <div className="absolute h-[26rem] w-[26rem] rounded-full bg-orange-300/30 blur-3xl dark:bg-orange-700/20" />
+
+  <img
+    src="/images/logo.png"
+    alt="Yousra logo"
+    className="relative z-10 w-[22rem] object-contain drop-shadow-2xl sm:w-[26rem] lg:w-[30rem]"
+  />
+
+  <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 rounded-full border border-orange-200 bg-white/75 px-5 py-2 text-sm font-semibold text-stone-700 shadow-sm backdrop-blur dark:border-orange-900/40 dark:bg-stone-900/60 dark:text-stone-200">
+    PhD Researcher
+    University of Denver
+  </div>
+</motion.div>
         </section>
 
 <Section id="about" eyebrow="About" title="A researcher, builder, mentor, and storyteller." className="bg-[#faf5ef] dark:bg-[#171312]">
