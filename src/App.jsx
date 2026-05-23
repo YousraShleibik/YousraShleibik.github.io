@@ -24,9 +24,9 @@ const profile = {
   title: "PhD Student in Computer Science",
   affiliation: "University of Denver",
   location: "Denver, Colorado",
-  email: "your.email@du.edu",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
+  email: "yasoosh1@gmail.com",
+  github: "https://github.com/YousraShleibik",
+  linkedin: "https://www.linkedin.com/in/yousra-shleibik",
   tagline:
     "I design and study human-centered AI systems for attention, accessibility, and human-robot interaction.",
   intro:
