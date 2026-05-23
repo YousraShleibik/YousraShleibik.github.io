@@ -189,19 +189,23 @@ export default function PersonalWebsite() {
 
   return (
     <div>
-      <main className="min-h-screen overflow-hidden bg-[#faf5ef] text-zinc-800 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-100">
+      <main className="min-h-screen overflow-hidden bg-[#faf5ef] text-stone-800 transition-colors duration-300 dark:bg-[#171312] dark:text-stone-100">
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute left-[-12rem] top-[-10rem] h-96 w-96 rounded-full bg-rose-200/50 blur-3xl dark:bg-rose-500/10" />
-          <div className="absolute right-[-12rem] top-40 h-96 w-96 rounded-full bg-pink-200/60 blur-3xl dark:bg-pink-500/10" />
-          <div className="absolute bottom-[-12rem] left-1/3 h-96 w-96 rounded-full bg-stone-200/40 blur-3xl dark:bg-stone-500/10" />
+          <div className="absolute left-[-12rem] top-[-10rem] h-96 w-96 rounded-full bg-rose-200/50 blur-3xl dark:bg-rose-900/20" />
+          <div className="absolute right-[-12rem] top-40 h-96 w-96 rounded-full bg-amber-200/60 blur-3xl dark:bg-amber-900/20" />
+          <div className="absolute bottom-[-12rem] left-1/3 h-96 w-96 rounded-full bg-stone-200/50 blur-3xl dark:bg-stone-700/20" />
         </div>
 
-        <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-[#faf5ef]/80 backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950/75">
+        <header className="sticky top-0 z-50 border-b border-stone-200/70 bg-[#faf5ef]/85 backdrop-blur-xl dark:border-white/10 dark:bg-[#171312]/85">
           <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
             <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight">
-              <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-zinc-950 text-sm text-white shadow-lg shadow-zinc-950/10 dark:bg-white dark:text-zinc-950">
-                YS
-              </span>
+<span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-white shadow-lg shadow-stone-900/10 ring-1 ring-stone-200 dark:bg-stone-900 dark:ring-white/10">
+  <img
+    src="/images/logo.png"
+    alt="Yousra logo"
+    className="h-full w-full object-contain p-1.5"
+  />
+</span>
               <span>{profile.name}</span>
             </a>
 
@@ -317,30 +321,41 @@ export default function PersonalWebsite() {
           </motion.div>
         </section>
 
-        <Section id="about" eyebrow="About" title="A researcher, builder, mentor, and storyteller.">
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="rounded-[2rem] border border-zinc-200 bg-white/70 p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
-              <p className="text-lg leading-8 text-zinc-700 dark:text-zinc-300">
-                {profile.tagline}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                <Tag>Computer Vision</Tag>
-                <Tag>Robotics</Tag>
-                <Tag>HCI</Tag>
-                <Tag>HRI</Tag>
-                <Tag>Interactive ML</Tag>
-              </div>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {researchThemes.map((theme) => (
-                <div key={theme.title} className="rounded-[2rem] border border-zinc-200 bg-white/70 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5">
-                  <h3 className="font-semibold text-zinc-950 dark:text-white">{theme.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">{theme.text}</p>
-                </div>
-              ))}
-            </div>
+<Section id="about" eyebrow="About" title="A researcher, builder, mentor, and storyteller.">
+  <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+<div className="overflow-hidden rounded-[2.5rem] shadow-xl shadow-stone-900/10">
+  <img
+    src="/images/about.jpg"
+    alt="Yousra Shleibik"
+    className="h-[560px] w-full object-cover"
+  />
+</div>
+
+    <div className="space-y-6">
+      <div className="rounded-[2rem] border border-zinc-200 bg-white/70 p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
+        <p className="text-lg leading-8 text-zinc-700 dark:text-zinc-300">
+          {profile.tagline}
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          <Tag>Computer Vision</Tag>
+          <Tag>Robotics</Tag>
+          <Tag>HCI</Tag>
+          <Tag>HRI</Tag>
+          <Tag>Interactive ML</Tag>
+        </div>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {researchThemes.map((theme) => (
+          <div key={theme.title} className="rounded-[2rem] border border-zinc-200 bg-white/70 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5">
+            <h3 className="font-semibold text-zinc-950 dark:text-white">{theme.title}</h3>
+            <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">{theme.text}</p>
           </div>
-        </Section>
+        ))}
+      </div>
+    </div>
+  </div>
+</Section>
 
         <Section id="research" eyebrow="Research" title="The questions I keep coming back to.">
           <div className="grid gap-5 md:grid-cols-3">
@@ -365,11 +380,10 @@ export default function PersonalWebsite() {
               <button
                 key={item}
                 onClick={() => setFilter(item)}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                  filter === item
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${filter === item
                     ? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950"
                     : "border border-zinc-200 bg-white/70 text-zinc-700 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-zinc-200"
-                }`}
+                  }`}
               >
                 {item}
               </button>
