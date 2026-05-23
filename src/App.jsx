@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import Particles from "react-particles";
+import { loadSlim } from "tsparticles-slim";
 import {
   ArrowUpRight,
   BookOpen,
@@ -34,7 +36,7 @@ const profile = {
     "My research spans visual representation learning, scene understanding, 3D reconstruction, point-cloud-based modeling, saliency-based visual attention, and multimodal visual systems. I am interested in developing scalable AI systems for visual data, 3D vision, and human-centered interaction.",
 };
 
-const navItems = ["About", "Research", "Projects", "Publications", "Leadership", "Life", "Contact"];
+const navItems = ["About", "Research", "Projects", "Publications", "Skills", "Leadership", "Life", "Contact"];
 
 const researchThemes = [
   {
@@ -201,6 +203,24 @@ const publications = [
     link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
   },
 ];
+const skills = [
+  {
+    category: "Programming",
+    items: ["Python", "C++", "CUDA", "Bash", "Java", "MATLAB", "R", "Rust"],
+  },
+  {
+    category: "AI / Machine Learning",
+    items: ["PyTorch", "TensorFlow", "Hugging Face", "Scikit-Learn", "Neural Network Training", "Model Evaluation"],
+  },
+  {
+    category: "Computer Vision / 3D",
+    items: ["OpenCV", "PyTorch3D", "YOLOv5", "Faster R-CNN", "Point Clouds", "3D Reconstruction", "Scene Understanding"],
+  },
+  {
+    category: "Research",
+    items: ["Experiment Design", "Visual Data Analysis", "Human-in-the-Loop Evaluation", "Technical Writing", "Peer-Reviewed Publications"],
+  },
+];
 
 const leadership = [
   {
@@ -241,6 +261,9 @@ const leadership = [
   },
 ];
 
+
+
+
 const lifeItems = [
   "Finding cozy local cafés",
   "Traveling and discovering hidden gems",
@@ -249,23 +272,25 @@ const lifeItems = [
   "Outdoor walks, mountain views, and peaceful moments",
 ];
 
-function Section({ id, eyebrow, title, children }) {
+function Section({ id, eyebrow, title, children, className = "" }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.55 }}
-      >
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-orange-500 dark:text-orange-300">
-          {eyebrow}
-        </p>
-        <h2 className="mb-8 max-w-3xl text-3xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-4xl">
-          {title}
-        </h2>
-        {children}
-      </motion.div>
+    <section id={id} className={`relative px-5 py-20 sm:px-8 ${className}`}>
+      <div className="mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.55 }}
+        >
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-orange-600 dark:text-orange-300">
+            {eyebrow}
+          </p>
+          <h2 className="mb-8 max-w-3xl text-3xl font-semibold tracking-tight text-stone-950 dark:text-white sm:text-4xl">
+            {title}
+          </h2>
+          {children}
+        </motion.div>
+      </div>
     </section>
   );
 }
@@ -278,6 +303,64 @@ function Tag({ children }) {
   );
 }
 
+
+function ParticleBackground() {
+  const particlesInit = async (engine) => {
+    await loadSlim(engine);
+  };
+
+  return (
+    <Particles
+      id="particles"
+      init={particlesInit}
+      className="pointer-events-none fixed inset-0 -z-0"
+      options={{
+        fullScreen: { enable: false },
+        background: { color: "transparent" },
+        fpsLimit: 60,
+        particles: {
+          number: {
+            value: 55,
+            density: { enable: true, area: 900 },
+          },
+          color: {
+            value: ["#f97316", "#f59e0b", "#78716c", "#ffffff"],
+          },
+          links: {
+            enable: true,
+            color: "#f59e0b",
+            distance: 140,
+            opacity: 0.18,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 0.45,
+            direction: "none",
+            random: true,
+            straight: false,
+            outModes: { default: "out" },
+          },
+          opacity: { value: 0.28 },
+          size: { value: { min: 1, max: 3 } },
+        },
+        interactivity: {
+          events: {
+            onHover: { enable: true, mode: "grab" },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 150,
+              links: { opacity: 0.35 },
+            },
+          },
+        },
+        detectRetina: true,
+      }}
+    />
+  );
+}
 export default function PersonalWebsite() {
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -298,6 +381,8 @@ export default function PersonalWebsite() {
   return (
     <div>
       <main className="min-h-screen overflow-hidden bg-[#faf5ef] text-stone-800 transition-colors duration-300 dark:bg-[#171312] dark:text-stone-100">
+        
+        <ParticleBackground />
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
           <div className="absolute left-[-12rem] top-[-10rem] h-96 w-96 rounded-full bg-orange-200/50 blur-3xl dark:bg-orange-900/20" />
           <div className="absolute right-[-12rem] top-40 h-96 w-96 rounded-full bg-amber-200/60 blur-3xl dark:bg-amber-900/20" />
@@ -429,7 +514,7 @@ export default function PersonalWebsite() {
           </motion.div>
         </section>
 
-<Section id="about" eyebrow="About" title="A researcher, builder, mentor, and storyteller.">
+<Section id="about" eyebrow="About" title="A researcher, builder, mentor, and storyteller." className="bg-[#faf5ef] dark:bg-[#171312]">
   <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
 <div className="overflow-hidden rounded-[2.5rem] shadow-xl shadow-stone-900/10">
   <img
@@ -465,7 +550,7 @@ export default function PersonalWebsite() {
   </div>
 </Section>
 
-        <Section id="research" eyebrow="Research" title="The questions I keep coming back to.">
+       <Section id="research" eyebrow="Research" title="The questions I keep coming back to." className="bg-[#f5eee6] dark:bg-[#1d1715]">
           <div className="grid gap-5 md:grid-cols-3">
             {[
               "How can AI systems understand human preferences with less friction?",
@@ -482,7 +567,7 @@ export default function PersonalWebsite() {
           </div>
         </Section>
 
-        <Section id="projects" eyebrow="Projects" title="Selected work and research directions.">
+        <Section id="projects" eyebrow="Projects" title="Selected work and research directions." className="bg-[#fbf7f2] dark:bg-[#171312]">
           <div className="mb-6 flex flex-wrap gap-2">
             {filters.map((item) => (
               <button
@@ -521,7 +606,7 @@ export default function PersonalWebsite() {
           </div>
         </Section>
 
-        <Section id="publications" eyebrow="Publications" title="Papers, workshops, and writing.">
+        <Section id="publications" eyebrow="Publications" title="Papers, workshops, and writing." className="bg-[#faf5ef] dark:bg-[#171312]">
           <div className="overflow-hidden rounded-[2rem] border border-zinc-200 bg-white/75 shadow-sm dark:border-white/10 dark:bg-white/5">
             {publications.map((paper, index) => (
               <div key={paper.title} className={`p-6 ${index !== publications.length - 1 ? "border-b border-zinc-200 dark:border-white/10" : ""}`}>
@@ -555,6 +640,31 @@ export default function PersonalWebsite() {
             ))}
           </div>
         </Section>
+        <Section id="skills" eyebrow="Skills" title="Technical strengths across AI, vision, robotics, and research." className="bg-[#f3eadf] dark:bg-[#201916]">
+  <div className="grid gap-5 md:grid-cols-2">
+    {skills.map((group) => (
+      <div
+        key={group.category}
+        className="rounded-[2rem] border border-stone-200 bg-white/70 p-7 shadow-sm dark:border-stone-700/60 dark:bg-stone-900/35"
+      >
+        <h3 className="text-lg font-semibold text-stone-950 dark:text-stone-50">
+          {group.category}
+        </h3>
+
+        <div className="mt-5 flex flex-wrap gap-2">
+          {group.items.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-sm font-medium text-orange-800 dark:border-orange-900/50 dark:bg-orange-900/20 dark:text-orange-200"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</Section>
 
         <Section id="leadership" eyebrow="Leadership" title="Mentorship, teaching, volunteering, and community work.">
           <div className="grid gap-5 md:grid-cols-2">
