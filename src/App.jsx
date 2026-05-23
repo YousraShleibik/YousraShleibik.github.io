@@ -26,7 +26,7 @@ const profile = {
   location: "Denver, Colorado",
   email: "yasoosh1@gmail.com",
   github: "https://github.com/YousraShleibik",
-  linkedin: "https://www.linkedin.com/in/yousra-shleibik",
+  linkedin: "https://www.linkedin.com/in/yousra-shleibik/",
   tagline:
     "I design and study human-centered AI systems for attention, accessibility, and human-robot interaction.",
   intro:
