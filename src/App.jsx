@@ -21,16 +21,17 @@ import {
 
 const profile = {
   name: "Yousra Shleibik",
-  title: "PhD Student in Computer Science",
+  title: "Computer Science PhD Student",
   affiliation: "University of Denver",
   location: "Denver, Colorado",
-  email: "yasoosh1@gmail.com",
+  email: "Yasoosh1@gmail.com",
   github: "https://github.com/YousraShleibik",
   linkedin: "https://www.linkedin.com/in/yousra-shleibik/",
+  scholar: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
   tagline:
-    "I design and study human-centered AI systems for attention, accessibility, and human-robot interaction.",
+    "Computer Science PhD researcher specializing in AI, computer vision, 3D perception, and human-centered machine learning.",
   intro:
-    "My work sits at the intersection of HCI, HRI, computer vision, and interactive machine learning. I care about building AI systems that are not only technically strong, but also understandable, useful, and grounded in real human needs.",
+    "My research spans visual representation learning, scene understanding, 3D reconstruction, point-cloud-based modeling, saliency-based visual attention, and multimodal visual systems. I am interested in developing scalable AI systems for visual data, 3D vision, and human-centered interaction.",
 };
 
 const navItems = ["About", "Research", "Projects", "Publications", "Leadership", "Life", "Contact"];
@@ -56,38 +57,96 @@ const researchThemes = [
 
 const projects = [
   {
-    title: "Learning to Refocus",
-    type: "Research Proposal",
+    title: "HARP: Human-Aligned Representation-Based Preference Learning",
+    type: "Research Project",
+    year: "2026 – Present",
+    description:
+      "Representation-based preference learning project focused on perceptual data. Contributed to writing, literature review, and research framing. Related short paper accepted to ACL 2026 Student Research Workshop.",
+    tags: ["Preference Learning", "Representation Learning", "Visual AI", "Human-Centered AI"],
+    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
+  },
+  {
+    title: "Saliency-Based Attention Shifting for Driver Situational Awareness",
+    type: "IEEE RO-MAN 2025",
     year: "2025",
     description:
-      "A gaze-aware AR system with interactive machine learning for personalized attention support.",
-    tags: ["HCI", "AR", "Gaze", "Accessibility"],
+      "Developed a saliency-based attention shifting framework to support driver awareness of out-of-label hazards using multimodal visual and audio alert strategies.",
+    tags: ["Computer Vision", "Attention", "Driver Awareness", "HRI"],
+    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
   },
   {
-    title: "HARP",
-    type: "Research Project",
-    year: "2026",
-    description:
-      "Human-aligned representation-based preference learning for perceptual data and visual AI systems.",
-    tags: ["Preference Learning", "Computer Vision", "Representation Learning"],
-  },
-  {
-    title: "AR Attention Control for HRI",
-    type: "Workshop Paper",
+    title: "Human-Robot Teaming through AR and Gaze-Based Attention Control",
+    type: "IEEE RO-MAN 2024",
     year: "2024",
     description:
-      "Exploring augmented reality and gaze-based interaction for guiding attention in human-robot teaming.",
-    tags: ["HRI", "AR", "Robotics"],
+      "Built an augmented reality system for gaze-based attention control in human-robot teaming contexts, using AR visual cues to guide user attention and support robot interaction.",
+    tags: ["HRI", "AR", "Gaze", "Robotics"],
+    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
+  },
+  {
+    title: "3D Reconstruction of 2D Images Using Deep Learning",
+    type: "M.S. Thesis",
+    year: "2023",
+    description:
+      "Developed AR applications and deep learning models for reconstructing 3D meshes from RGB images using point clouds and occupancy estimation.",
+    tags: ["3D Vision", "Deep Learning", "Point Clouds", "AR"],
+    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
   },
   {
     title: "Sustainability Hub",
     type: "UX / Design Project",
     year: "2024",
     description:
-      "A user-centered website concept supporting sustainability resources and community engagement in Colorado.",
-    tags: ["UX", "Figma", "Design Justice"],
+      "Designed a user-centered website concept for Colorado sustainability resources, focusing on accessibility, community needs, and clear information flow.",
+    tags: ["UX", "Figma", "Design Justice", "Sustainability"],
   },
+  {
+    title: "Change Detection with Scene Understanding",
+    type: "GitHub Project",
+    year: "2023",
+    description:
+      "Python project exploring addition and deletion change detection, connected to scene understanding and dynamic environment analysis.",
+    tags: ["Python", "Change Detection", "Scene Understanding"],
+    link: "https://github.com/YousraShleibik/Change_Detection-",
+  },
+  {
+    title: "Rust Virtual Machine Project",
+    type: "Course / Systems Project",
+    year: "2025",
+    description:
+      "A Rust-based virtual machine project developed step by step through data structures, enums, instruction execution, and systems programming concepts.",
+    tags: ["Rust", "Virtual Machine", "Systems"],
+    link: "https://github.com/YousraShleibik/Rust_VM_Project",
+  },
+  {
+    title: "Rust Programming Projects",
+    type: "Course Projects",
+    year: "2025",
+    description:
+      "A collection of Rust programming projects completed for COMP4701, focused on practicing Rust syntax, ownership, and systems-level programming concepts.",
+    tags: ["Rust", "Programming", "Coursework"],
+    link: "https://github.com/YousraShleibik/Rust_Projects",
+  },
+  {
+    title: "Flappy-Bot",
+    type: "GitHub Project",
+    year: "2023",
+    description:
+      "Python project experimenting with a Flappy Bird-style bot/game environment.",
+    tags: ["Python", "Game AI", "Experiment"],
+    link: "https://github.com/YousraShleibik/Flappy-Bot",
+  },
+  {
+  title: "Reinforcement Learning for Robot Navigation",
+  type: "AI Robotics Class Project",
+  year: "2024",
+  description:
+    "Built reinforcement learning software for a robot navigation task, where the robot learned to navigate efficiently through an environment. My robot achieved the fastest navigation performance in the class.",
+  tags: ["Reinforcement Learning", "Robotics", "Navigation", "AI"],
+  link: "",
+}
 ];
+
 
 const publications = [
   {
@@ -150,7 +209,7 @@ function Section({ id, eyebrow, title, children }) {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.55 }}
       >
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-rose-500 dark:text-rose-300">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-orange-500 dark:text-orange-300">
           {eyebrow}
         </p>
         <h2 className="mb-8 max-w-3xl text-3xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-4xl">
@@ -191,7 +250,7 @@ export default function PersonalWebsite() {
     <div>
       <main className="min-h-screen overflow-hidden bg-[#faf5ef] text-stone-800 transition-colors duration-300 dark:bg-[#171312] dark:text-stone-100">
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute left-[-12rem] top-[-10rem] h-96 w-96 rounded-full bg-rose-200/50 blur-3xl dark:bg-rose-900/20" />
+          <div className="absolute left-[-12rem] top-[-10rem] h-96 w-96 rounded-full bg-orange-200/50 blur-3xl dark:bg-orange-900/20" />
           <div className="absolute right-[-12rem] top-40 h-96 w-96 rounded-full bg-amber-200/60 blur-3xl dark:bg-amber-900/20" />
           <div className="absolute bottom-[-12rem] left-1/3 h-96 w-96 rounded-full bg-stone-200/50 blur-3xl dark:bg-stone-700/20" />
         </div>
@@ -262,7 +321,7 @@ export default function PersonalWebsite() {
             transition={{ duration: 0.7 }}
           >
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-200">
-              <Sparkles size={16} className="text-rose-500" />
+              <Sparkles size={16} className="text-orange-600" />
               Human-centered AI • HCI • HRI • Accessibility
             </div>
             <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-6xl lg:text-7xl">
@@ -296,7 +355,7 @@ export default function PersonalWebsite() {
             className="relative"
           >
             <div className="rounded-[2.5rem] border border-zinc-200 bg-white/75 p-5 shadow-2xl shadow-zinc-900/10 backdrop-blur dark:border-white/10 dark:bg-white/5">
-              <div className="rounded-[2rem] bg-gradient-to-br from-rose-100 via-pink-50 to-stone-100 p-8 dark:from-rose-500/20 dark:via-pink-500/10 dark:to-stone-500/20">
+              <div className="rounded-[2rem] bg-gradient-to-br from-orange-100 via-pink-50 to-stone-100 p-8 dark:from-orange-500/20 dark:via-pink-500/10 dark:to-stone-500/20">
                 <div className="mb-8 flex items-center justify-between">
                   <div>
                     <p className="text-sm text-zinc-600 dark:text-zinc-300">Currently</p>
@@ -309,7 +368,7 @@ export default function PersonalWebsite() {
                 <div className="space-y-4">
                   {[profile.title, profile.affiliation, profile.location].map((item, index) => (
                     <div key={item} className="flex items-center gap-3 rounded-2xl bg-white/70 p-4 shadow-sm dark:bg-zinc-950/35">
-                      {index === 0 && <BriefcaseBusiness size={18} className="text-rose-500" />}
+                      {index === 0 && <BriefcaseBusiness size={18} className="text-orange-500" />}
                       {index === 1 && <GraduationCap size={18} className="text-pink-600" />}
                       {index === 2 && <MapPin size={18} className="text-stone-600" />}
                       <span className="text-sm font-medium">{item}</span>
@@ -399,7 +458,7 @@ export default function PersonalWebsite() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-sm font-medium text-rose-500 dark:text-rose-300">{project.type} • {project.year}</p>
+                    <p className="text-sm font-medium text-orange-500 dark:text-orange-300">{project.type} • {project.year}</p>
                     <h3 className="mt-2 text-xl font-semibold text-zinc-950 dark:text-white">{project.title}</h3>
                   </div>
                   <ArrowUpRight className="opacity-40 transition group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100" />
@@ -438,7 +497,7 @@ export default function PersonalWebsite() {
               const Icon = item.icon;
               return (
                 <div key={item.role} className="rounded-[2rem] border border-zinc-200 bg-white/70 p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
-                  <Icon className="mb-5 text-rose-500" size={26} />
+                  <Icon className="mb-5 text-orange-500" size={26} />
                   <h3 className="text-lg font-semibold text-zinc-950 dark:text-white">{item.role}</h3>
                   <p className="mt-3 leading-7 text-zinc-600 dark:text-zinc-300">{item.detail}</p>
                 </div>
@@ -450,7 +509,7 @@ export default function PersonalWebsite() {
         <Section id="life" eyebrow="Beyond research" title="A little more human, because good portfolios should feel alive.">
           <div className="grid gap-5 lg:grid-cols-[1fr_1fr]">
             <div className="rounded-[2rem] border border-zinc-200 bg-white/70 p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
-              <Camera className="mb-5 text-rose-500" />
+              <Camera className="mb-5 text-orange-500" />
               <p className="text-lg leading-8 text-zinc-700 dark:text-zinc-300">
                 Outside research, I like documenting small beautiful moments: cafés, travel, peaceful walks, visual stories, and places that feel warm and memorable.
               </p>
