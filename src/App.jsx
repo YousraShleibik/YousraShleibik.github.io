@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -175,6 +175,11 @@ export default function PersonalWebsite() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [filter, setFilter] = useState("All");
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+  }, [dark]);
+
+
   const filteredProjects = useMemo(() => {
     if (filter === "All") return projects;
     return projects.filter((project) => project.tags.includes(filter));
@@ -183,15 +188,15 @@ export default function PersonalWebsite() {
   const filters = ["All", "HCI", "AR", "Gaze", "Robotics", "Computer Vision", "UX"];
 
   return (
-    <div className={dark ? "dark" : ""}>
-      <main className="min-h-screen overflow-hidden bg-[#fbf7f2] text-zinc-800 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-100">
+    <div>
+      <main className="min-h-screen overflow-hidden bg-[#faf5ef] text-zinc-800 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-100">
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
           <div className="absolute left-[-12rem] top-[-10rem] h-96 w-96 rounded-full bg-rose-200/50 blur-3xl dark:bg-rose-500/10" />
-          <div className="absolute right-[-12rem] top-40 h-96 w-96 rounded-full bg-amber-200/60 blur-3xl dark:bg-amber-500/10" />
-          <div className="absolute bottom-[-12rem] left-1/3 h-96 w-96 rounded-full bg-sky-200/40 blur-3xl dark:bg-sky-500/10" />
+          <div className="absolute right-[-12rem] top-40 h-96 w-96 rounded-full bg-pink-200/60 blur-3xl dark:bg-pink-500/10" />
+          <div className="absolute bottom-[-12rem] left-1/3 h-96 w-96 rounded-full bg-stone-200/40 blur-3xl dark:bg-stone-500/10" />
         </div>
 
-        <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-[#fbf7f2]/80 backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950/75">
+        <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-[#faf5ef]/80 backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950/75">
           <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
             <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight">
               <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-zinc-950 text-sm text-white shadow-lg shadow-zinc-950/10 dark:bg-white dark:text-zinc-950">
@@ -287,7 +292,7 @@ export default function PersonalWebsite() {
             className="relative"
           >
             <div className="rounded-[2.5rem] border border-zinc-200 bg-white/75 p-5 shadow-2xl shadow-zinc-900/10 backdrop-blur dark:border-white/10 dark:bg-white/5">
-              <div className="rounded-[2rem] bg-gradient-to-br from-rose-100 via-amber-50 to-sky-100 p-8 dark:from-rose-500/20 dark:via-amber-500/10 dark:to-sky-500/20">
+              <div className="rounded-[2rem] bg-gradient-to-br from-rose-100 via-pink-50 to-stone-100 p-8 dark:from-rose-500/20 dark:via-pink-500/10 dark:to-stone-500/20">
                 <div className="mb-8 flex items-center justify-between">
                   <div>
                     <p className="text-sm text-zinc-600 dark:text-zinc-300">Currently</p>
@@ -301,8 +306,8 @@ export default function PersonalWebsite() {
                   {[profile.title, profile.affiliation, profile.location].map((item, index) => (
                     <div key={item} className="flex items-center gap-3 rounded-2xl bg-white/70 p-4 shadow-sm dark:bg-zinc-950/35">
                       {index === 0 && <BriefcaseBusiness size={18} className="text-rose-500" />}
-                      {index === 1 && <GraduationCap size={18} className="text-amber-600" />}
-                      {index === 2 && <MapPin size={18} className="text-sky-600" />}
+                      {index === 1 && <GraduationCap size={18} className="text-pink-600" />}
+                      {index === 2 && <MapPin size={18} className="text-stone-600" />}
                       <span className="text-sm font-medium">{item}</span>
                     </div>
                   ))}
