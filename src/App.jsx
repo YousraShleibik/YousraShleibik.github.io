@@ -150,45 +150,94 @@ const projects = [
 
 const publications = [
   {
-    title: "Human-Aligned Representation-based Preference Learning for Perceptual Data",
-    venue: "Workshop paper / in progress",
+    title: "HARP: Human-Aligned Representation-Based Preference Learning from Perceptual Data",
+    authors: "Sinclair, J., Shleibik, Y., & Haring, K.",
+    venue: "Submitted to NeurIPS 2026",
     year: "2026",
-    status: "Accepted workshop paper",
+    status: "Submitted",
+    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
   },
   {
-    title: "Saliency-Based Attention Shifting for Driver Situational Awareness",
-    venue: "IEEE RO-MAN",
+    title: "HARP: Representation-Based Preference Learning for Perceptual Data",
+    authors: "Sinclair, J., Shleibik, Y., & Haring, K.",
+    venue: "ACL 2026 Student Research Workshop",
+    year: "2026",
+    status: "Short paper accepted",
+    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
+  },
+  {
+    title:
+      "Saliency-Based Attention Shifting: A Framework for Improving Driver Situational Awareness of Out-of-Label Hazards",
+    authors: "Shleibik, Y., Sinclair, J., & Haring, K.",
+    venue: "IEEE RO-MAN 2025; arXiv:2508.11887",
     year: "2025",
-    status: "Workshop paper",
+    status: "First-author paper",
+    link: "https://arxiv.org/abs/2508.11887",
   },
   {
-    title: "Human-Robot Teaming through AR and Gaze-Based Attention Control",
-    venue: "IEEE RO-MAN",
+    title: "Smart-vision: Survey of Modern Action Recognition Techniques in Vision",
+    authors:
+      "AlShami, A. K., Rabinowitz, R., Lam, K., Shleibik, Y., Mersha, M., Boult, T., & Kalita, J.",
+    venue: "Multimedia Tools and Applications, 84(27), 32705–32776",
+    year: "2025",
+    status: "Journal article",
+    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
+  },
+  {
+    title:
+      "Towards Human-Robot Teaming through Augmented Reality and Gaze-Based Attention Control",
+    authors: "Shleibik, Y., Alabi, E., & Reardon, C.",
+    venue: "IEEE RO-MAN 2024; arXiv:2408.12823",
     year: "2024",
-    status: "Workshop paper",
+    status: "First-author paper",
+    link: "https://arxiv.org/abs/2408.12823",
+  },
+  {
+    title: "3D Reconstruction of 2D Images Using Deep Learning",
+    authors: "Shleibik, Y. A.",
+    venue: "Master’s thesis, University of Colorado Colorado Springs",
+    year: "2023",
+    status: "Thesis",
+    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
   },
 ];
 
 const leadership = [
   {
-    role: "Graduate Mentor Fellow",
-    detail: "Mentoring undergraduate students on research, writing, and literature review development.",
+    role: "Graduate Teaching Assistant",
+    detail:
+      "Supported undergraduate computer science courses through grading, technical feedback, and student-centered instruction.",
+    icon: BookOpen,
+  },
+  {
+    role: "Graduate Mentor",
+    detail:
+      "Mentored students on research design, literature reviews, academic writing, and technical presentation.",
     icon: GraduationCap,
   },
   {
     role: "Google Women Techmakers Mentorship Program",
-    detail: "Developing research, career, presentation, and technical growth goals with mentorship support.",
+    detail:
+      "Selected for mentorship focused on technical growth, leadership development, and career preparation in technology.",
     icon: Sparkles,
   },
   {
-    role: "Graduate Student Government",
-    detail: "Social media and student engagement through events, storytelling, and community-building.",
+    role: "International Women’s Day Panelist and Co-Organizer",
+    detail:
+      "Co-organized and participated in a Women in STEM discussion with Google Women Techmakers and IEEE Women in Engineering.",
     icon: HeartHandshake,
   },
   {
-    role: "Teaching & TA Work",
-    detail: "Supporting courses in programming, design justice, deep learning, and statistics.",
-    icon: BookOpen,
+    role: "Social Media and Marketing Director",
+    detail:
+      "Led student engagement and outreach initiatives for DU Graduate Student Government events.",
+    icon: Camera,
+  },
+  {
+    role: "Awards and Recognition",
+    detail:
+      "Best Poster Award at University of Denver Graduate Research Day, 2025; 50th Anniversary College of Engineering and Computer Science Award, 2022; Fulbright Scholarship Recipient, 2021.",
+    icon: Sparkles,
   },
 ];
 
@@ -478,7 +527,23 @@ export default function PersonalWebsite() {
               <div key={paper.title} className={`p-6 ${index !== publications.length - 1 ? "border-b border-zinc-200 dark:border-white/10" : ""}`}>
                 <div className="grid gap-2 md:grid-cols-[1fr_auto] md:items-center">
                   <div>
-                    <h3 className="font-semibold text-zinc-950 dark:text-white">{paper.title}</h3>
+                    <h3 className="font-semibold text-zinc-950 dark:text-white">
+                      {paper.link ? (
+                        <a
+                          href={paper.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="transition hover:text-orange-600 dark:hover:text-orange-300"
+                        >
+                          {paper.title}
+                        </a>
+                      ) : (
+                        paper.title
+                      )}
+                    </h3>
+                    <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                      {paper.authors}
+                    </p>
                     <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{paper.venue}</p>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
@@ -543,6 +608,14 @@ export default function PersonalWebsite() {
                 <a href={profile.linkedin} className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold dark:border-zinc-200">
                   <BriefcaseBusiness size={16} /> LinkedIn
                 </a>
+                <a
+                    href={profile.scholar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold dark:border-zinc-200"
+                  >
+                    <BookOpen size={16} /> Google Scholar
+                  </a>
               </div>
             </div>
           </div>
