@@ -67,21 +67,21 @@ const projects = [
   },
   {
     title: "Saliency-Based Attention Shifting for Driver Situational Awareness",
-    type: "IEEE RO-MAN 2025",
+    type: "IEEE RO-MAN ",
     year: "2025",
     description:
       "Developed a saliency-based attention shifting framework to support driver awareness of out-of-label hazards using multimodal visual and audio alert strategies.",
     tags: ["Computer Vision", "Attention", "Driver Awareness", "HRI"],
-    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
+    link: "https://arxiv.org/abs/2508.11887",
   },
   {
     title: "Human-Robot Teaming through AR and Gaze-Based Attention Control",
-    type: "IEEE RO-MAN 2024",
+    type: "IEEE RO-MAN ",
     year: "2024",
     description:
       "Built an augmented reality system for gaze-based attention control in human-robot teaming contexts, using AR visual cues to guide user attention and support robot interaction.",
     tags: ["HRI", "AR", "Gaze", "Robotics"],
-    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
+    link: "https://arxiv.org/abs/2408.12823",
   },
   {
     title: "3D Reconstruction of 2D Images Using Deep Learning",
@@ -93,12 +93,12 @@ const projects = [
     link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
   },
   {
-    title: "Sustainability Hub",
-    type: "UX / Design Project",
+    title: "Reinforcement Learning for Robot Navigation",
+    type: "AI Robotics Class Project",
     year: "2024",
     description:
-      "Designed a user-centered website concept for Colorado sustainability resources, focusing on accessibility, community needs, and clear information flow.",
-    tags: ["UX", "Figma", "Design Justice", "Sustainability"],
+      "Developed reinforcement learning software for a robot navigation challenge, enabling the robot to learn efficient movement through an environment. The robot achieved the fastest completion time in the class, and a demo video is available upon request.",
+    tags: ["Reinforcement Learning", "Robotics", "Navigation", "AI"],
   },
   {
     title: "Change Detection with Scene Understanding",
@@ -108,6 +108,14 @@ const projects = [
       "Python project exploring addition and deletion change detection, connected to scene understanding and dynamic environment analysis.",
     tags: ["Python", "Change Detection", "Scene Understanding"],
     link: "https://github.com/YousraShleibik/Change_Detection-",
+  },
+  {
+    title: "Sustainability Hub",
+    type: "UX / Design Project",
+    year: "2024",
+    description:
+      "Designed a user-centered website concept for Colorado sustainability resources, focusing on accessibility, community needs, and clear information flow.",
+    tags: ["UX", "Figma", "Design Justice", "Sustainability"],
   },
   {
     title: "Rust Virtual Machine Project",
@@ -123,7 +131,7 @@ const projects = [
     type: "Course Projects",
     year: "2025",
     description:
-      "A collection of Rust programming projects completed for COMP4701, focused on practicing Rust syntax, ownership, and systems-level programming concepts.",
+      "A collection of Rust programming projects focused on practicing Rust syntax, ownership, and systems-level programming concepts.",
     tags: ["Rust", "Programming", "Coursework"],
     link: "https://github.com/YousraShleibik/Rust_Projects",
   },
@@ -136,16 +144,8 @@ const projects = [
     tags: ["Python", "Game AI", "Experiment"],
     link: "https://github.com/YousraShleibik/Flappy-Bot",
   },
-  {
-  title: "Reinforcement Learning for Robot Navigation",
-  type: "AI Robotics Class Project",
-  year: "2024",
-  description:
-    "Built reinforcement learning software for a robot navigation task, where the robot learned to navigate efficiently through an environment. My robot achieved the fastest navigation performance in the class.",
-  tags: ["Reinforcement Learning", "Robotics", "Navigation", "AI"],
-  link: "",
-}
 ];
+ 
 
 
 const publications = [
@@ -371,7 +371,7 @@ export default function PersonalWebsite() {
           >
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-200">
               <Sparkles size={16} className="text-orange-600" />
-              Human-centered AI • HCI • HRI • Accessibility
+              Human-centered AI • Computer Vision • Robotics • Accessibility
             </div>
             <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-6xl lg:text-7xl">
               Building thoughtful AI systems for people, attention, and interaction.
