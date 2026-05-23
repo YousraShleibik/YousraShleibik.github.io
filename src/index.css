@@ -1,3 +1,147 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Main theme â€” darker/more noticeable */
+  --color-bg: #E7D4CC;
+  --color-section: #D8CBDD;
+  --color-section-alt: #DFC8BE;
+  --color-card: #FFF8F4;
+
+  /* Text */
+  --color-text: #18233B;
+  --color-text-muted: #4B5263;
+
+  /* Accents from your image, but stronger */
+  --color-accent: #C98570;
+  --color-accent-strong: #A85F4A;
+  --color-mauve: #B37D88;
+  --color-lavender: #8F83AA;
+
+  /* Buttons */
+  --color-button: #18233B;
+  --color-button-hover: #263454;
+  --color-button-text: #FFFFFF;
+
+  /* Borders */
+  --color-border: #C98570;
+}
+
+/* Page */
+.theme-page {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Header / nav */
+.theme-header {
+  background-color: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.theme-nav-link {
+  color: color-mix(in srgb, var(--color-text) 75%, transparent);
+}
+
+.theme-nav-link:hover {
+  color: var(--color-text);
+}
+
+.theme-logo {
+  background-color: var(--color-card);
+  ring-color: color-mix(in srgb, var(--color-border) 40%, transparent);
+}
+
+.theme-icon-button,
+.theme-mobile-link {
+  background-color: color-mix(in srgb, var(--color-card) 86%, transparent);
+  color: var(--color-text);
+  border: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
+}
+
+/* Sections */
+.theme-section {
+  background-color: var(--color-bg);
+}
+
+.theme-section-alt {
+  background-color: var(--color-section-alt);
+}
+
+/* Cards / pills / tags */
+.theme-card {
+  background-color: color-mix(in srgb, var(--color-card) 86%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
+}
+
+.theme-pill {
+  background-color: color-mix(in srgb, var(--color-card) 86%, transparent);
+  color: var(--color-text);
+  border: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
+}
+
+.theme-tag {
+  background-color: color-mix(in srgb, var(--color-accent) 30%, white);
+  color: var(--color-text);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
+}
+
+/* Text */
+.theme-title {
+  color: var(--color-text);
+}
+
+.theme-body {
+  color: color-mix(in srgb, var(--color-text) 82%, transparent);
+}
+
+.theme-muted {
+  color: var(--color-text-muted);
+}
+
+.theme-eyebrow {
+  color: var(--color-accent-strong);
+}
+
+/* Buttons */
+.theme-button-primary {
+  background-color: var(--color-button);
+  color: var(--color-button-text);
+}
+
+.theme-button-primary:hover {
+  background-color: var(--color-button-hover);
+}
+
+.theme-button-secondary {
+  background-color: color-mix(in srgb, var(--color-card) 86%, transparent);
+  color: var(--color-text);
+  border: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+}
+
+.theme-contact-card {
+  background-color: var(--color-button);
+  color: var(--color-button-text);
+  border: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
+}
+
+/* Soft background glows */
+.theme-glow {
+  background-color: color-mix(in srgb, var(--color-accent) 65%, transparent);
+}
+
+.theme-glow-mauve {
+  background-color: color-mix(in srgb, var(--color-mauve) 65%, transparent);
+}
+
+.theme-glow-lavender {
+  background-color: color-mix(in srgb, var(--color-lavender) 65%, transparent);
+}
+
+/* Footer */
+.theme-footer {
+  color: var(--color-text-muted);
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
+}

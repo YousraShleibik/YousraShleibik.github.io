@@ -286,10 +286,10 @@ function Section({ id, eyebrow, title, children, className = "" }) {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.55 }}
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-orange-600 dark:text-orange-300">
+          <p className="theme-eyebrow mb-3 text-sm font-semibold uppercase tracking-[0.25em] dark:text-orange-300">
             {eyebrow}
           </p>
-          <h2 className="mb-8 max-w-3xl text-3xl font-semibold tracking-tight text-stone-950 dark:text-white sm:text-4xl">
+          <h2 className="theme-title mb-8 max-w-3xl text-3xl font-semibold tracking-tight dark:text-white sm:text-4xl">
             {title}
           </h2>
           {children}
@@ -301,7 +301,7 @@ function Section({ id, eyebrow, title, children, className = "" }) {
 
 function Tag({ children }) {
   return (
-    <span className="rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-200">
+    <span className="theme-tag rounded-full px-3 py-1 text-xs font-medium shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-200">
       {children}
     </span>
   );
@@ -326,7 +326,7 @@ function ParticleBackground() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute left-1/2 top-[-10rem] h-[26rem] w-[38rem] -translate-x-1/2 rounded-full bg-orange-400/35 blur-3xl dark:bg-orange-700/25"
+        className="theme-glow absolute left-1/2 top-[-10rem] h-[26rem] w-[38rem] -translate-x-1/2 rounded-full blur-3xl dark:bg-orange-700/25"
       />
 
       <Particles
@@ -413,7 +413,7 @@ function TypingText() {
   }, [displayText, isDeleting, wordIndex]);
 
   return (
-    <p className="mt-4 text-lg font-semibold text-orange-600 dark:text-orange-300 sm:text-xl">
+    <p className="theme-eyebrow mt-4 text-lg font-semibold dark:text-orange-300 sm:text-xl">
       {displayText}
       <span className="ml-1 animate-pulse">|</span>
     </p>
@@ -438,26 +438,25 @@ export default function PersonalWebsite() {
 
   return (
     <div>
-      <main className="min-h-screen overflow-hidden bg-[#faf5ef] text-stone-800 transition-colors duration-300 dark:bg-[#171312] dark:text-stone-100">
-        
+      <main className="theme-page min-h-screen overflow-hidden transition-colors duration-300 dark:bg-[#171312] dark:text-stone-100">
         <ParticleBackground />
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute left-[-12rem] top-[-10rem] h-96 w-96 rounded-full bg-orange-200/50 blur-3xl dark:bg-orange-900/20" />
-          <div className="absolute right-[-12rem] top-40 h-96 w-96 rounded-full bg-amber-200/60 blur-3xl dark:bg-amber-900/20" />
-          <div className="absolute bottom-[-12rem] left-1/3 h-96 w-96 rounded-full bg-stone-200/50 blur-3xl dark:bg-stone-700/20" />
+          <div className="theme-glow absolute left-[-12rem] top-[-10rem] h-96 w-96 rounded-full blur-3xl dark:bg-orange-900/20" />
+          <div className="theme-glow-mauve absolute right-[-12rem] top-40 h-96 w-96 rounded-full blur-3xl dark:bg-amber-900/20" />
+          <div className="theme-glow-lavender absolute bottom-[-12rem] left-1/3 h-96 w-96 rounded-full blur-3xl dark:bg-stone-700/20" />
         </div>
 
-        <header >
+        <header className="theme-header sticky top-0 z-50 dark:border-white/10 dark:bg-[#171312]/85">
             <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
             <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight">
-<span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-white shadow-lg shadow-stone-900/10 ring-1 ring-stone-200 dark:bg-white dark:ring-white/20">
+<span className="theme-logo flex h-11 w-11 items-center justify-center overflow-hidden rounded-full shadow-lg shadow-stone-900/10 dark:bg-white dark:ring-white/20">
  <img
     src="/images/logo.png"
     alt="Yousra logo"
     className="h-full w-full object-contain"
   />
 </span>
-              <span>{profile.name}</span>
+              <span className="theme-title dark:text-white">{profile.name}</span>
             </a>
 
             <div className="hidden items-center gap-6 md:flex">
@@ -465,7 +464,7 @@ export default function PersonalWebsite() {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-sm font-medium text-zinc-600 transition hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white"
+                  className="theme-nav-link text-sm font-medium transition dark:text-zinc-300 dark:hover:text-white"
                 >
                   {item}
                 </a>
@@ -475,14 +474,14 @@ export default function PersonalWebsite() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setDark(!dark)}
-                className="rounded-full border border-zinc-200 bg-white/70 p-2 shadow-sm transition hover:scale-105 dark:border-white/10 dark:bg-white/5"
+                className="theme-icon-button rounded-full p-2 shadow-sm transition hover:scale-105 dark:border-white/10 dark:bg-white/5"
                 aria-label="Toggle dark mode"
               >
                 {dark ? <Sun size={18} /> : <Moon size={18} />}
               </button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="rounded-full border border-zinc-200 bg-white/70 p-2 shadow-sm md:hidden dark:border-white/10 dark:bg-white/5"
+                className="theme-icon-button rounded-full p-2 shadow-sm md:hidden dark:border-white/10 dark:bg-white/5"
                 aria-label="Toggle navigation"
               >
                 {menuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -497,7 +496,7 @@ export default function PersonalWebsite() {
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-2xl border border-zinc-200 bg-white/70 px-4 py-3 text-sm font-medium dark:border-white/10 dark:bg-white/5"
+                  className="theme-mobile-link rounded-2xl px-4 py-3 text-sm font-medium dark:border-white/10 dark:bg-white/5"
                 >
                   {item}
                 </a>
@@ -512,39 +511,39 @@ export default function PersonalWebsite() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/75 px-4 py-2 text-sm font-semibold text-stone-700 shadow-sm dark:border-orange-900/40 dark:bg-stone-900/40 dark:text-stone-200">
-              <Sparkles size={16} className="text-orange-600" />
+            <div className="theme-pill mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold shadow-sm dark:border-orange-900/40 dark:bg-stone-900/40 dark:text-stone-200">
+              <Sparkles size={16} className="theme-eyebrow" />
               Human-centered AI • Computer Vision • Robotics • Accessibility
             </div>
 <div className="mb-6">
-  <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-600 dark:text-orange-300">
+  <p className="theme-eyebrow text-sm font-semibold uppercase tracking-[0.25em] dark:text-orange-300">
     Portfolio
   </p>
-  <p className="mt-2 text-sm text-stone-600 dark:text-stone-300">
+  <p className="theme-muted mt-2 text-sm dark:text-stone-300">
     AI · Computer Vision · HRI · Accessibility
   </p>
 </div>
 
-<h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-stone-950 dark:text-white sm:text-6xl lg:text-7xl">
+<h1 className="theme-title max-w-4xl text-5xl font-semibold tracking-tight dark:text-white sm:text-6xl lg:text-7xl">
   {profile.name}
 </h1>
 
 <TypingText />
 
-<p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700 dark:text-stone-300">
+<p className="theme-body mt-6 max-w-2xl text-lg leading-8 dark:text-stone-300">
   {profile.intro}
 </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2 rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white shadow-xl shadow-zinc-950/10 transition hover:-translate-y-0.5 dark:bg-white dark:text-zinc-950"
+                className="theme-button-primary group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold shadow-xl shadow-zinc-950/10 transition hover:-translate-y-0.5 dark:bg-white dark:text-[#1f2940]"
               >
                 View my work
                 <ChevronRight size={16} className="transition group-hover:translate-x-0.5" />
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-5 py-3 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/5"
+                className="theme-button-secondary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/5"
               >
                 Contact me
                 <Mail size={16} />
@@ -558,7 +557,7 @@ export default function PersonalWebsite() {
   transition={{ duration: 0.7, delay: 0.15 }}
   className="relative flex min-h-[560px] items-center justify-center pt-10"
 >
-  <div className="absolute h-[26rem] w-[26rem] rounded-full bg-orange-300/30 blur-3xl dark:bg-orange-700/20" />
+  <div className="theme-glow absolute h-[26rem] w-[26rem] rounded-full blur-3xl dark:bg-orange-700/20" />
 
   <img
     src="/images/logo.png"
@@ -566,26 +565,26 @@ export default function PersonalWebsite() {
     className="relative z-10 w-[22rem] object-contain drop-shadow-2xl sm:w-[26rem] lg:w-[30rem]"
   />
 
-  <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 rounded-full border border-orange-200 bg-white/75 px-5 py-2 text-sm font-semibold text-stone-700 shadow-sm backdrop-blur dark:border-orange-900/40 dark:bg-stone-900/60 dark:text-stone-200">
+  <div className="theme-pill absolute bottom-8 left-1/2 z-20 -translate-x-1/2 rounded-full px-5 py-2 text-sm font-semibold shadow-sm backdrop-blur dark:border-orange-900/40 dark:bg-stone-900/60 dark:text-stone-200">
     PhD Researcher
     University of Denver
   </div>
 </motion.div>
         </section>
 
-<Section id="about" eyebrow="About" title="A researcher, builder, mentor, and storyteller." className="bg-[#faf5ef] dark:bg-[#171312]">
+<Section id="about" eyebrow="About" title="A researcher, builder, mentor, and storyteller." className="theme-section dark:bg-[#171312]">
   <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-<div className="overflow-hidden rounded-[2.5rem] shadow-xl shadow-stone-900/10">
+<div >
   <img
     src="/images/about.jpg"
     alt="Yousra Shleibik"
-    className="h-[560px] w-full object-cover"
+    className="w-104 h-104 object-cover rounded-full"
   />
 </div>
 
     <div className="space-y-6">
-      <div className="rounded-[2rem] border border-zinc-200 bg-white/70 p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
-        <p className="text-lg leading-8 text-zinc-700 dark:text-zinc-300">
+      <div className="theme-card rounded-[2rem] p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
+        <p className="theme-body text-lg leading-8 dark:text-zinc-300">
           {profile.tagline}
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
@@ -599,9 +598,9 @@ export default function PersonalWebsite() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         {researchThemes.map((theme) => (
-          <div key={theme.title} className="rounded-[2rem] border border-zinc-200 bg-white/70 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5">
-            <h3 className="font-semibold text-zinc-950 dark:text-white">{theme.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">{theme.text}</p>
+          <div key={theme.title} className="theme-card rounded-[2rem] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5">
+            <h3 className="theme-title font-semibold dark:text-white">{theme.title}</h3>
+            <p className="theme-muted mt-3 text-sm leading-6 dark:text-zinc-300">{theme.text}</p>
           </div>
         ))}
       </div>
@@ -609,32 +608,32 @@ export default function PersonalWebsite() {
   </div>
 </Section>
 
-       <Section id="research" eyebrow="Research" title="The questions I keep coming back to." className="bg-[#f5eee6] dark:bg-[#1d1715]">
+       <Section id="research" eyebrow="Research" title="The questions I keep coming back to." className="theme-section-alt dark:bg-[#1d1715]">
           <div className="grid gap-5 md:grid-cols-3">
             {[
               "How can AI systems understand human preferences with less friction?",
               "How can AR and gaze-based interfaces support attention in real time?",
               "How can robots and agents communicate in ways that feel clear, respectful, and useful?",
             ].map((question, index) => (
-              <div key={question} className="rounded-[2rem] border border-zinc-200 bg-white/70 p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950">
+              <div key={question} className="theme-card rounded-[2rem] p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
+                <div className="theme-button-primary mb-5 flex h-11 w-11 items-center justify-center rounded-2xl dark:bg-white dark:text-[#1f2940]">
                   0{index + 1}
                 </div>
-                <p className="text-lg font-medium leading-7 text-zinc-900 dark:text-white">{question}</p>
+                <p className="theme-title text-lg font-medium leading-7 dark:text-white">{question}</p>
               </div>
             ))}
           </div>
         </Section>
 
-        <Section id="projects" eyebrow="Projects" title="Selected work and research directions." className="bg-[#fbf7f2] dark:bg-[#171312]">
+        <Section id="projects" eyebrow="Projects" title="Selected work and research directions." className="theme-section dark:bg-[#171312]">
           <div className="mb-6 flex flex-wrap gap-2">
             {filters.map((item) => (
               <button
                 key={item}
                 onClick={() => setFilter(item)}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition ${filter === item
-                    ? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950"
-                    : "border border-zinc-200 bg-white/70 text-zinc-700 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-zinc-200"
+                    ? "theme-button-primary dark:bg-white dark:text-[#1f2940]"
+                    : "theme-button-secondary hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-zinc-200"
                   }`}
               >
                 {item}
@@ -647,16 +646,16 @@ export default function PersonalWebsite() {
               <motion.article
                 key={project.title}
                 layout
-                className="group rounded-[2rem] border border-zinc-200 bg-white/75 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5"
+                className="theme-card group rounded-[2rem] p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-sm font-medium text-orange-500 dark:text-orange-300">{project.type} • {project.year}</p>
-                    <h3 className="mt-2 text-xl font-semibold text-zinc-950 dark:text-white">{project.title}</h3>
+                    <p className="theme-eyebrow text-sm font-medium dark:text-orange-300">{project.type} • {project.year}</p>
+                    <h3 className="theme-title mt-2 text-xl font-semibold dark:text-white">{project.title}</h3>
                   </div>
                   <ArrowUpRight className="opacity-40 transition group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100" />
                 </div>
-                <p className="mt-4 leading-7 text-zinc-600 dark:text-zinc-300">{project.description}</p>
+                <p className="theme-muted mt-4 leading-7 dark:text-zinc-300">{project.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {project.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
                 </div>
@@ -665,19 +664,19 @@ export default function PersonalWebsite() {
           </div>
         </Section>
 
-        <Section id="publications" eyebrow="Publications" title="Papers, workshops, and writing." className="bg-[#faf5ef] dark:bg-[#171312]">
-          <div className="overflow-hidden rounded-[2rem] border border-zinc-200 bg-white/75 shadow-sm dark:border-white/10 dark:bg-white/5">
+        <Section id="publications" eyebrow="Publications" title="Papers, workshops, and writing." className="theme-section dark:bg-[#171312]">
+          <div className="theme-card overflow-hidden rounded-[2rem] shadow-sm dark:border-white/10 dark:bg-white/5">
             {publications.map((paper, index) => (
               <div key={paper.title} className={`p-6 ${index !== publications.length - 1 ? "border-b border-zinc-200 dark:border-white/10" : ""}`}>
                 <div className="grid gap-2 md:grid-cols-[1fr_auto] md:items-center">
                   <div>
-                    <h3 className="font-semibold text-zinc-950 dark:text-white">
+                    <h3 className="theme-title font-semibold dark:text-white">
                       {paper.link ? (
                         <a
                           href={paper.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="transition hover:text-orange-600 dark:hover:text-orange-300"
+                          className="transition hover:text-[var(--color-accent-strong)] dark:hover:text-orange-300"
                         >
                           {paper.title}
                         </a>
@@ -685,12 +684,12 @@ export default function PersonalWebsite() {
                         paper.title
                       )}
                     </h3>
-                    <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                    <p className="theme-muted mt-1 text-sm dark:text-zinc-400">
                       {paper.authors}
                     </p>
-                    <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{paper.venue}</p>
+                    <p className="theme-muted mt-1 text-sm dark:text-zinc-300">{paper.venue}</p>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+                  <div className="theme-muted flex items-center gap-2 text-sm dark:text-zinc-400">
                     <CalendarDays size={16} />
                     {paper.year} · {paper.status}
                   </div>
@@ -699,14 +698,14 @@ export default function PersonalWebsite() {
             ))}
           </div>
         </Section>
-        <Section id="skills" eyebrow="Skills" title="Technical strengths across AI, vision, robotics, and research." className="bg-[#f3eadf] dark:bg-[#201916]">
+        <Section id="skills" eyebrow="Skills" title="Technical strengths across AI, vision, robotics, and research." className="theme-section-alt dark:bg-[#201916]">
   <div className="grid gap-5 md:grid-cols-2">
     {skills.map((group) => (
       <div
         key={group.category}
-        className="rounded-[2rem] border border-stone-200 bg-white/70 p-7 shadow-sm dark:border-stone-700/60 dark:bg-stone-900/35"
+        className="theme-card rounded-[2rem] p-7 shadow-sm dark:border-stone-700/60 dark:bg-stone-900/35"
       >
-        <h3 className="text-lg font-semibold text-stone-950 dark:text-stone-50">
+        <h3 className="theme-title text-lg font-semibold dark:text-stone-50">
           {group.category}
         </h3>
 
@@ -714,7 +713,7 @@ export default function PersonalWebsite() {
           {group.items.map((skill) => (
             <span
               key={skill}
-              className="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-sm font-medium text-orange-800 dark:border-orange-900/50 dark:bg-orange-900/20 dark:text-orange-200"
+              className="theme-tag rounded-full px-3 py-1 text-sm font-medium dark:border-orange-900/50 dark:bg-orange-900/20 dark:text-orange-200"
             >
               {skill}
             </span>
@@ -730,10 +729,10 @@ export default function PersonalWebsite() {
             {leadership.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.role} className="rounded-[2rem] border border-zinc-200 bg-white/70 p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
-                  <Icon className="mb-5 text-orange-500" size={26} />
-                  <h3 className="text-lg font-semibold text-zinc-950 dark:text-white">{item.role}</h3>
-                  <p className="mt-3 leading-7 text-zinc-600 dark:text-zinc-300">{item.detail}</p>
+                <div key={item.role} className="theme-card rounded-[2rem] p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
+                  <Icon className="theme-eyebrow mb-5" size={26} />
+                  <h3 className="theme-title text-lg font-semibold dark:text-white">{item.role}</h3>
+                  <p className="theme-muted mt-3 leading-7 dark:text-zinc-300">{item.detail}</p>
                 </div>
               );
             })}
@@ -742,15 +741,15 @@ export default function PersonalWebsite() {
 
         <Section id="life" eyebrow="Beyond research" title="A little more human, because good portfolios should feel alive.">
           <div className="grid gap-5 lg:grid-cols-[1fr_1fr]">
-            <div className="rounded-[2rem] border border-zinc-200 bg-white/70 p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
-              <Camera className="mb-5 text-orange-500" />
-              <p className="text-lg leading-8 text-zinc-700 dark:text-zinc-300">
+            <div className="theme-card rounded-[2rem] p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
+              <Camera className="theme-eyebrow mb-5" />
+              <p className="theme-body text-lg leading-8 dark:text-zinc-300">
                 Outside research, I like documenting small beautiful moments: cafés, travel, peaceful walks, visual stories, and places that feel warm and memorable.
               </p>
             </div>
             <div className="grid gap-3">
               {lifeItems.map((item) => (
-                <div key={item} className="rounded-2xl border border-zinc-200 bg-white/70 px-5 py-4 text-sm font-medium shadow-sm dark:border-white/10 dark:bg-white/5">
+                <div key={item} className="theme-card rounded-2xl px-5 py-4 text-sm font-medium shadow-sm dark:border-white/10 dark:bg-white/5">
                   {item}
                 </div>
               ))}
@@ -759,16 +758,16 @@ export default function PersonalWebsite() {
         </Section>
 
         <Section id="contact" eyebrow="Contact" title="Let’s connect about research, collaboration, mentorship, or creative ideas.">
-          <div className="rounded-[2.5rem] border border-zinc-200 bg-zinc-950 p-8 text-white shadow-2xl shadow-zinc-950/15 dark:border-white/10 dark:bg-white dark:text-zinc-950">
+          <div className="theme-contact-card rounded-[2.5rem] p-8 shadow-2xl shadow-zinc-950/15 dark:border-white/10 dark:bg-white dark:text-[#1f2940]">
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
                 <h3 className="text-2xl font-semibold">Open to research conversations and collaborations.</h3>
-                <p className="mt-3 max-w-2xl text-zinc-300 dark:text-zinc-600">
+                <p className="mt-3 max-w-2xl text-white/75 dark:text-zinc-600">
                   I’m especially interested in human-centered AI, accessibility, HCI/HRI, computer vision, and interactive learning systems.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-zinc-950 dark:bg-zinc-950 dark:text-white">
+                <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--color-text)] dark:bg-[var(--color-button)] dark:text-white">
                   <Mail size={16} /> Email
                 </a>
                 <a href={profile.github} className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold dark:border-zinc-200">
@@ -790,7 +789,7 @@ export default function PersonalWebsite() {
           </div>
         </Section>
 
-        <footer className="border-t border-zinc-200 px-5 py-8 text-center text-sm text-zinc-500 dark:border-white/10 dark:text-zinc-400">
+        <footer className="theme-footer px-5 py-8 text-center text-sm dark:border-white/10 dark:text-zinc-400">
           © {new Date().getFullYear()} {profile.name}. Designed and built with care.
         </footer>
       </main>
