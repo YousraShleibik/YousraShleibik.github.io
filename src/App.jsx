@@ -199,11 +199,11 @@ export default function PersonalWebsite() {
         <header className="sticky top-0 z-50 border-b border-stone-200/70 bg-[#faf5ef]/85 backdrop-blur-xl dark:border-white/10 dark:bg-[#171312]/85">
           <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
             <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight">
-<span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-white shadow-lg shadow-stone-900/10 ring-1 ring-stone-200 dark:bg-stone-900 dark:ring-white/10">
-  <img
+<span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-white shadow-lg shadow-stone-900/10 ring-1 ring-stone-200 dark:bg-white dark:ring-white/20">
+ <img
     src="/images/logo.png"
     alt="Yousra logo"
-    className="h-full w-full object-contain p-1.5"
+    className="h-full w-full object-contain "
   />
 </span>
               <span>{profile.name}</span>
