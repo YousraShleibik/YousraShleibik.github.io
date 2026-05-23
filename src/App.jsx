@@ -446,8 +446,8 @@ export default function PersonalWebsite() {
           <div className="theme-glow-lavender absolute bottom-[-12rem] left-1/3 h-96 w-96 rounded-full blur-3xl dark:bg-stone-700/20" />
         </div>
 
-        <header className="theme-header sticky top-0 z-50 dark:border-white/10 dark:bg-[#171312]/85">
-            <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+        <header className="theme-header sticky top-0 z-50">
+              <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
             <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight">
 <span className="theme-logo flex h-11 w-11 items-center justify-center overflow-hidden rounded-full shadow-lg shadow-stone-900/10 dark:bg-white dark:ring-white/20">
  <img
@@ -464,8 +464,8 @@ export default function PersonalWebsite() {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="theme-nav-link text-sm font-medium transition dark:text-zinc-300 dark:hover:text-white"
-                >
+                  className="text-sm font-medium text-[var(--color-text)]/80 transition hover:text-[var(--color-text)] dark:text-slate-200/80 dark:hover:text-white"
+                  >
                   {item}
                 </a>
               ))}
@@ -530,7 +530,7 @@ export default function PersonalWebsite() {
 
 <TypingText />
 
-<p className="theme-body mt-6 max-w-2xl text-lg leading-8 dark:text-stone-300">
+<p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-muted)] dark:text-slate-200/90">
   {profile.intro}
 </p>
             <div className="mt-8 flex flex-wrap gap-3">
