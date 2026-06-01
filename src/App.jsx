@@ -543,9 +543,9 @@ export default function PersonalWebsite() {
   <div className="theme-glow absolute h-[26rem] w-[26rem] rounded-full blur-3xl dark:bg-orange-700/20" />
 
   <img
-    src="/images/logo.png"
-    alt="Yousra logo"
-    className="relative z-10 w-[22rem] object-contain drop-shadow-2xl sm:w-[26rem] lg:w-[30rem]"
+    src="/images/about.jpg"
+    alt="Yousra Shleibik"
+    className="relative z-10 w-[22rem] object-contain drop-shadow-2xl sm:w-[26rem] lg:w-[30rem] rounded-full"
   />
 
   <div className="theme-pill absolute bottom-8 left-1/2 z-20 -translate-x-1/2 rounded-full px-5 py-2 text-sm font-semibold shadow-sm backdrop-blur dark:border-orange-900/40 dark:bg-stone-900/60 dark:text-stone-200">
