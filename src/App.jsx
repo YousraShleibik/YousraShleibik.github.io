@@ -502,7 +502,7 @@ export default function PersonalWebsite() {
 
 <div className="mb-6">
   <p className="theme-eyebrow text-sm font-semibold uppercase tracking-[0.25em] dark:text-orange-300">
-    Human-centered AI • Computer Vision • Robotics • Accessibility
+   AI • Computer Vision • Robotics • Accessibility • Human-centered AI 
   </p>
 
 </div>
@@ -545,7 +545,7 @@ export default function PersonalWebsite() {
   <img
     src="/images/about.jpg"
     alt="Yousra Shleibik"
-    className="relative z-10 w-[22rem] object-contain drop-shadow-2xl sm:w-[26rem] lg:w-[30rem] rounded-full"
+    className="relative z-10 w-[22rem] object-contain drop-shadow-2xl sm:w-[20rem] lg:w-[25rem] rounded-full"
   />
 
   <div className="theme-pill absolute bottom-8 left-1/2 z-20 -translate-x-1/2 rounded-full px-5 py-2 text-sm font-semibold shadow-sm backdrop-blur dark:border-orange-900/40 dark:bg-stone-900/60 dark:text-stone-200">
