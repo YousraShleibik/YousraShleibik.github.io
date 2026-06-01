@@ -405,12 +405,7 @@ function TypingText() {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, wordIndex]);
 
-  return (
-    <p className="theme-eyebrow mt-4 text-lg font-semibold dark:text-orange-300 sm:text-xl">
-      {displayText}
-      <span className="ml-1 animate-pulse">|</span>
-    </p>
-  );
+ 
 }
 export default function PersonalWebsite() {
   const [dark, setDark] = useState(false);
@@ -504,17 +499,12 @@ export default function PersonalWebsite() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="theme-pill mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold shadow-sm dark:border-orange-900/40 dark:bg-stone-900/40 dark:text-stone-200">
-              <Sparkles size={16} className="theme-eyebrow" />
-              Human-centered AI • Computer Vision • Robotics • Accessibility
-            </div>
+
 <div className="mb-6">
   <p className="theme-eyebrow text-sm font-semibold uppercase tracking-[0.25em] dark:text-orange-300">
-    Portfolio
+    Human-centered AI • Computer Vision • Robotics • Accessibility
   </p>
-  <p className="theme-muted mt-2 text-sm dark:text-stone-300">
-    AI · Computer Vision · HRI · Accessibility
-  </p>
+
 </div>
 
 <h1 className="theme-title max-w-4xl text-5xl font-semibold tracking-tight dark:text-white sm:text-6xl lg:text-7xl">
