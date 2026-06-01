@@ -63,7 +63,7 @@ const researchThemes = [
 
 const projects = [
   {
-    title: "HARP: Human-Aligned Representation-Based Preference Learning",
+    title: "Human-Aligned Preference Learning",
     type: "Research Project",
     year: "2026 – Present",
     description:
@@ -155,16 +155,9 @@ const projects = [
 
 
 const publications = [
+
   {
-    title: "HARP: Human-Aligned Representation-Based Preference Learning from Perceptual Data",
-    authors: "Sinclair, J., Shleibik, Y., & Haring, K.",
-    venue: "Submitted to NeurIPS 2026",
-    year: "2026",
-    status: "Submitted",
-    link: "https://scholar.google.com/citations?user=8d0X9sAAAAAJ&hl=en",
-  },
-  {
-    title: "HARP: Representation-Based Preference Learning for Perceptual Data",
+    title: "Representation-Based Preference Learning ",
     authors: "Sinclair, J., Shleibik, Y., & Haring, K.",
     venue: "ACL 2026 Student Research Workshop",
     year: "2026",
