@@ -559,7 +559,7 @@ export default function PersonalWebsite() {
   <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
 <div >
   <img
-    src="/images/about.jpg"
+    src="/images/logo.png"
     alt="Yousra Shleibik"
     className="w-104 h-104 object-cover rounded-full"
   />
@@ -591,22 +591,7 @@ export default function PersonalWebsite() {
   </div>
 </Section>
 
-       <Section id="research" eyebrow="Research" title="The questions I keep coming back to." className="theme-section-alt dark:bg-[#1d1715]">
-          <div className="grid gap-5 md:grid-cols-3">
-            {[
-              "How can AI systems understand human preferences with less friction?",
-              "How can AR and gaze-based interfaces support attention in real time?",
-              "How can robots and agents communicate in ways that feel clear, respectful, and useful?",
-            ].map((question, index) => (
-              <div key={question} className="theme-card rounded-[2rem] p-7 shadow-sm dark:border-white/10 dark:bg-white/5">
-                <div className="theme-button-primary mb-5 flex h-11 w-11 items-center justify-center rounded-2xl dark:bg-white dark:text-[#1f2940]">
-                  0{index + 1}
-                </div>
-                <p className="theme-title text-lg font-medium leading-7 dark:text-white">{question}</p>
-              </div>
-            ))}
-          </div>
-        </Section>
+
 
         <Section id="projects" eyebrow="Projects" title="Selected work and research directions." className="theme-section dark:bg-[#171312]">
           <div className="mb-6 flex flex-wrap gap-2">
