@@ -543,7 +543,7 @@ export default function PersonalWebsite() {
   <div className="theme-glow absolute h-[26rem] w-[26rem] rounded-full blur-3xl dark:bg-orange-700/20" />
 
   <img
-    src="/images/about.png"
+    src="/images/about1.jpg"
     alt="Yousra Shleibik"
     className="relative z-15 w-[22rem] object-contain drop-shadow-2xl sm:w-[20rem] lg:w-[25rem] rounded-full"
   />
